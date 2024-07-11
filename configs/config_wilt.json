@@ -1,0 +1,50 @@
+{   "device": "cuda:0",
+"data_processing":
+                {
+                "name": "wilt",
+                "density": 0.05,
+                "quantile_transform": false
+                },
+    "model": {
+            "device": "cuda:0",
+            "latent_dim": 8,
+            "x_dim": 5,
+            "output_dim": 5,
+            "labels_dim": 1,
+            "hidden_dims": [128,128],
+            "activation":"leaky_relu",
+            "embed_cat": false
+    },
+    "training": {
+            "dataset": "wilt",
+            "nb_nn_for_prec_recall": [5],
+            "activation": "leaky_relu",
+            "negative_slope": 0.05,
+            "optimizer": "rms_prop",
+            "lr_g": 0.005,
+            "lr_decay": false,
+            "batch_size": 2048,
+            "epochs": 1500,
+            "bn": true,
+            "checkpoint_dir": "checkpoints",
+            "log_dir": "logs/",
+            "fig_dir": "figures",
+            "save_final_weights":false,
+            "K": 500,
+            "nb_dim_to_keep": 3,
+            "is_dark_bin":0,
+            "density": 0.05,
+            "lambda": 5,
+            "is_label_cat": true,
+            "indic_func": "sigmoid",
+            "sampling": "dbs",
+            "eta":0.8,
+            "loss_type":"maxabs",
+            "track_precision_recall":true,
+            "track_corr_error": true,
+            "epochs_checkpoints": [5, 100, 500, 1000, 1200, 1500],
+            "step": 500,
+            "plot_generated_data":true,
+            "plot_sampling": true
+    }
+}

@@ -1,0 +1,50 @@
+{   "device": "cuda:2",
+        "data_processing":
+                {
+                "name": "moons",
+                "density": 0.05,
+                "quantile_transform": false
+                },
+    "model": {
+            "device": "cuda:2",
+            "latent_dim": 16,
+            "x_dim": 2,
+            "output_dim": 2,
+            "labels_dim": 1,
+            "hidden_dims": [512,16],
+            "activation":"leaky_relu",
+            "embed_cat": false
+    },
+    "training": {
+            "dataset": "moons_2d",
+            "nb_nn_for_prec_recall": [2],
+            "activation": "leaky_relu",
+            "negative_slope": 0.05,
+            "optimizer": "rms_prop",
+            "lr_g": 0.0005,
+            "lr_decay": false,
+            "batch_size": 1024,
+            "epochs": 150,
+            "bn": true,
+            "checkpoint_dir": "checkpoints",
+            "log_dir": "logs/",
+            "fig_dir": "figures",
+            "save_final_weights":true,
+            "K": 100,
+            "nb_dim_to_keep": 2,
+            "is_dark_bin":0.1,
+            "density": 0.05,
+            "lambda": 10,
+            "is_label_cat": true,
+            "indic_func": "sigmoid",
+            "sampling": "dbs",
+            "eta":0.8,
+            "loss_type":"maxabs",
+            "track_precision_recall":true,
+            "track_corr_error": true,
+            "epochs_checkpoints": [1,5,50,100,150],
+            "step": 25,
+            "plot_generated_data":true,
+            "plot_sampling": true
+    }
+}

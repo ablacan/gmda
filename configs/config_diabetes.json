@@ -1,0 +1,50 @@
+{   "device": "cpu",
+"data_processing":
+                {
+                "name": "diabetes",
+                "density": 0.05,
+                "quantile_transform": false
+                },
+    "model": {
+            "device": "cpu",
+            "latent_dim": 16,
+            "x_dim": 8,
+            "output_dim": 8,
+            "labels_dim": 1,
+            "hidden_dims": [32,64],
+            "activation":"leaky_relu",
+            "embed_cat": false
+    },
+    "training": {
+            "dataset": "diabetes",
+            "nb_nn_for_prec_recall": [5],
+            "activation": "leaky_relu",
+            "negative_slope": 0.05,
+            "optimizer": "rms_prop",
+            "lr_g": 0.0005,
+            "lr_decay": false,
+            "batch_size": 400,
+            "epochs": 2000,
+            "bn": true,
+            "checkpoint_dir": "checkpoints",
+            "log_dir": "logs/",
+            "fig_dir": "figures",
+            "save_final_weights":false,
+            "K": 250,
+            "nb_dim_to_keep": 3,
+            "is_dark_bin":0,
+            "density": 0.05,
+            "lambda": 2,
+            "is_label_cat": true,
+            "indic_func": "sigmoid",
+            "sampling": "dbs",
+            "eta":0.1,
+            "loss_type":"maxabs",
+            "track_precision_recall":true,
+            "track_corr_error": true,
+            "epochs_checkpoints": [1, 100, 500, 1000, 1500, 2000, 2500],
+            "step": 1000,
+            "plot_generated_data":true,
+            "plot_sampling": true
+    }
+}

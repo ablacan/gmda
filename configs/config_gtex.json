@@ -1,0 +1,51 @@
+{   "device": "cuda:2",
+        "data_processing":
+                {
+                "name": "gtex",
+                "density": 0.15,
+                "quantile_transform": true,
+                "path_processing_files": "/home/alacan/scripts/gmda/data"
+                },
+    "model": {
+            "device": "cuda:2", 
+            "latent_dim": 8,
+            "x_dim": 974,
+            "output_dim": 974,
+            "labels_dim": 26,
+            "hidden_dims": [128, 512, 2048],
+            "activation":"leaky_relu",
+            "embed_cat": false
+    },
+    "training": {
+            "dataset": "gtex",
+            "nb_nn_for_prec_recall": [10],
+            "activation": "leaky_relu",
+            "negative_slope": 0.05,
+            "optimizer": "rms_prop",
+            "lr_g": 0.001,
+            "lr_decay": false,
+            "batch_size": 2048,
+            "epochs": 2500,
+            "bn": true,
+            "checkpoint_dir": "checkpoints",
+            "log_dir": "logs/",
+            "fig_dir": "figures",
+            "save_final_weights":false,
+            "K": 800,
+            "nb_dim_to_keep": 3,
+            "is_dark_bin":1,
+            "density": 0.15,
+            "lambda": 2,
+            "is_label_cat": true,
+            "indic_func": "sigmoid",
+            "sampling": "dbs",
+            "eta":0,
+            "loss_type":"maxabs",
+            "track_precision_recall":true,
+            "track_corr_error": true,
+            "epochs_checkpoints": [10, 100, 500, 1000, 1500, 2000, 2500],
+            "step": 500,
+            "plot_generated_data":true,
+            "plot_sampling": false
+    }
+}
